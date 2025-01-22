@@ -1,1 +1,1 @@
-# project-system
+# Gamoa team
