@@ -17,7 +17,6 @@ int main() {
   printf("Enter basic informations:\n");
   for (int i = 0; i < 5; i++) {
     printf("%s", promptsForInfo[i]);
-    // scanf("%f", &grades[i]);
     while (true) {
       if (fgets(inputVal, sizeof(inputVal), stdin)) {
         if (inputVal[0] == '\n') {
