@@ -14,8 +14,8 @@
 
   /*
   * COMPILE COMMANDS
-  * gcc -I../include -Wall -g src/main.c src/quiz.c src/file_manager.c -o quiz_system
-  
+  * gcc -Iinclude -Wall -g src/main.c src/quiz.c src/file_manager.c -o quiz_system
+    
   * RUN COMMANDS
   * gdb ./quiz_system 
 
