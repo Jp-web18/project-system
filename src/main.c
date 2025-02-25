@@ -1,50 +1,36 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
+#include "../include/quiz.h"
+#include "include/file_manager.h"
+/*
+  * Main function
+  * 1. Load correct answers from file
+  * 2. Load student progress from file
+  * 3. If progress is found, resume the quiz
+  * 4. If no progress is found, start a new quiz
+  * 5. Take answers from student
+  * 6. Save answers to file
+  * 7. Exit
+  */
+
+  /*
+  * COMPILE COMMANDS
+  * gcc -I../include -Wall -g src/main.c src/quiz.c src/file_manager.c -o quiz_system
+  
+  * RUN COMMANDS
+  * gdb ./quiz_system 
+
+*/
 
 int main() {
-  const char *promptsForInfo[] = {
-    "Enter your favorite number: ",
-    "Enter age: ",
-    "Enter years of experience: ",
-    "Enter grade: ",
-    "Enter number of siblings: "
-  };
-  float info[5];
-  char inputVal[10];
+    AnswerSheet sheet = {0};
+    loadCorrectAnswers(&sheet);
 
-  printf("Enter basic informations:\n");
-  for (int i = 0; i < 5; i++) {
-    printf("%s", promptsForInfo[i]);
-    while (true) {
-      if (fgets(inputVal, sizeof(inputVal), stdin)) {
-        if (inputVal[0] == '\n') {
-          printf("\nInvalid empty input! Enter again.\n");
-          printf("%s", promptsForInfo[i]);
-          continue;
-          // printf("%s", subjects[i]);
-        } else if (sscanf(inputVal, "%f", &info[i])) {
-          break;
-        }
-      }
-
-      printf("\nInvalid info entry! Enter another valid info.\n");
-      printf("%s", promptsForInfo[i]);
+    if (loadProgress(&sheet)) {
+        printf("Resuming previous session for %s...\n", sheet.studentName);
+    } else {
+        printf("Starting a new quiz...\n");
     }
-  }
 
-  char *infoNames[] = {
-		"\nFavorite number",
-		"Age",
-		"Years of experience",
-		"Grade",
-		"Number of siblings"
-	};
-
-	for (int i = 0; i < 5; i++) {
-		printf("%s: %.2f\n", infoNames[i], info[i]);
-	}
-
-  return 0;
+    takeAnswers(&sheet);
+    printf("Answers saved in student_data.txt\n");
+    return 0;
 }
