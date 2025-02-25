@@ -1,5 +1,6 @@
 #include "../include/quiz.h"
-#include "include/file_manager.h"
+#include "../include/file_manager.h"
+
 /*
   * Main function
   * 1. Load correct answers from file

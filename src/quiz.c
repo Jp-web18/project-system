@@ -2,7 +2,28 @@
 #include "file_manager.h"
 
 void loadCorrectAnswers(AnswerSheet *sheet) {
-    char tempAnswers[MAX_QUESTIONS] = {'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D'};
+    char tempAnswers[MAX_QUESTIONS] = {
+        'B', // number 1
+        'B', // number 2
+        'B', // number 3
+        'B', // number 4
+        'B', // number 5
+        'B', // number 6
+        'B', // number 7
+        'B', // number 8
+        'A', // number 9
+        'B', // number 10
+        'C', // number 11
+        'D', // number 12
+        'A', // number 13
+        'B', // number 14
+        'C', // number 15
+        'D', // number 16
+        'A', // number 17
+        'B', // number 18
+        'C', // number 19
+        'D'  // number 20
+    };
     memcpy(sheet->correctAnswers, tempAnswers, MAX_QUESTIONS);
 }
 

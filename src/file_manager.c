@@ -4,12 +4,9 @@ int loadProgress(AnswerSheet *sheet) {
     FILE *file = fopen("student_progress.txt", "r");
     if (!file) return 0;
 
-    fscanf(file, "%[^
-]\n", sheet->studentName);
-    fscanf(file, "%[^
-]\n", sheet->section);
-    fscanf(file, "%[^
-]\n", sheet->pcStation);
+    fscanf(file, "%[^\n]\n", sheet->studentName);
+    fscanf(file, "%[^\n]\n", sheet->section);
+    fscanf(file, "%[^\n]\n", sheet->pcStation);
     fscanf(file, "%d\n", &sheet->lastQuestion);
     fscanf(file, "%d\n", &sheet->score);
 
