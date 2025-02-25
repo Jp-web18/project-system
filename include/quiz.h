@@ -8,7 +8,7 @@
 #include <ctype.h>
 
 #define MAX_QUESTIONS 20
-#define TIME_LIMIT 60
+#define TIME_LIMIT 5000
 
 typedef struct {
     char studentName[50];
