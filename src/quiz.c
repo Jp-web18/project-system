@@ -57,7 +57,7 @@ void takeAnswers(AnswerSheet *sheet) {
             break;
         }
 
-        printf("Enter answer for Question %d: ", i + 1);
+        printf("Enter answer number %d: ", i + 1);
         scanf(" %c", &sheet->answers[i]);
         sheet->answers[i] = toupper(sheet->answers[i]);
 

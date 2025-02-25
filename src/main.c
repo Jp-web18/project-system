@@ -17,7 +17,7 @@
   * gcc -Iinclude -Wall -g src/main.c src/quiz.c src/file_manager.c -o quiz_system
     
   * RUN COMMANDS
-  * gdb ./quiz_system 
+  * ./quiz_system 
 
 */
 
@@ -33,5 +33,9 @@ int main() {
 
     takeAnswers(&sheet);
     printf("Answers saved in student_data.txt\n");
+
+    printf("\nPress any key to exit...\n");
+    system("pause");
+
     return 0;
 }
