@@ -1,5 +1,6 @@
 #include "../include/quiz.h"
 #include "../include/file_manager.h"
+#include "../include/colors.h"
 
 /*
   * Main function
@@ -26,9 +27,10 @@ int main() {
     loadCorrectAnswers(&sheet);
 
     if (loadProgress(&sheet)) {
-        printf("Resuming previous session for %s...\n", sheet.studentName);
+        printf("%sResuming previous session for %s...%s\n", sheet.studentName, 
+            CYAN, RESET);
     } else {
-        printf("Starting a new quiz...\n");
+        printf("\n\n%sStarting a new quiz...%s\n", CYAN, RESET);
     }
 
     takeAnswers(&sheet);

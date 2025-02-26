@@ -1,4 +1,5 @@
 #include "quiz.h"
+#include "colors.h"
 
 // Function to load correct answers into the AnswerSheet structure
 void loadCorrectAnswers(AnswerSheet *sheet) {
@@ -27,65 +28,30 @@ void loadCorrectAnswers(AnswerSheet *sheet) {
   memcpy(sheet->correctAnswers, tempAnswers, MAX_QUESTIONS);
 }
 
-/*
-
-int loadProgress(AnswerSheet *sheet) {
-    FILE *file = fopen("student_progress.txt", "r");
-    if (!file) return 0; // No previous progress
-
-    fscanf(file, "%[^\n]\n", sheet->studentName);
-    fscanf(file, "%[^\n]\n", sheet->section);
-    fscanf(file, "%[^\n]\n", sheet->pcStation);
-    fscanf(file, "%d\n", &sheet->lastQuestion);
-    fscanf(file, "%d\n", &sheet->score);
-
-    for (int i = 0; i < sheet->lastQuestion; i++) {
-        fscanf(file, " %c", &sheet->answers[i]);
-    }
-
-    fclose(file);
-    return 1; // Progress found
-}
-*/
-/*
-
-void saveProgress(AnswerSheet *sheet) {
-    FILE *file = fopen("student_progress.txt", "w");
-    if (!file) return;
-
-    fprintf(file, "%s\n%s\n%s\n", sheet->studentName, sheet->section, sheet->pcStation);
-    fprintf(file, "%d\n%d\n", sheet->lastQuestion, sheet->score);
-    
-    for (int i = 0; i < sheet->lastQuestion; i++) {
-        fprintf(file, "%c ", sheet->answers[i]);
-    }
-
-    fclose(file);
-}
-*/
-// Function to save progress
-
 // Function to take answers from students
 void takeAnswers(AnswerSheet *sheet) {
     if (sheet->lastQuestion == 0) {
-        printf("Enter your name: ");
+        printf("%sEnter your name>%s ", YELLOW, RESET);
         fgets(sheet->studentName, sizeof(sheet->studentName), stdin);
         sheet->studentName[strcspn(sheet->studentName, "\n")] = 0;
 
-        printf("Enter your section: ");
+        printf("%sEnter your section>%s ", YELLOW, RESET);
         fgets(sheet->section, sizeof(sheet->section), stdin);
         sheet->section[strcspn(sheet->section, "\n")] = 0;
 
-        printf("Enter your PC Station number: ");
+        printf("%sEnter your PC Station number>%s ", YELLOW, RESET);
         fgets(sheet->pcStation, sizeof(sheet->pcStation), stdin);
         sheet->pcStation[strcspn(sheet->pcStation, "\n")] = 0;
     }
 
+    printf("\n\n%sAnswer the following questions:%s\n", GREEN, RESET);
+
     time_t startTime = time(NULL);
     FILE *file = fopen("student_data.txt", "a");
 
+    // Check if the file is opened successfully
     if (!file) {
-        printf("ERROR: You cannot retake the test!\n");
+        printf("%sERROR: You cannot retake the test!%s\n", RED, RESET);
         return;
     }
 
@@ -96,8 +62,7 @@ void takeAnswers(AnswerSheet *sheet) {
             printf("Time is up!\n");
             break;
         }
-
-        printf("Enter answer for Question %d: ", i + 1);
+        printf("%sEnter answer for Question %s%d%s: ", MAGENTA, BLUE, i + 1, RESET);
         scanf(" %c", &sheet->answers[i]);
 
         sheet->answers[i] = toupper(sheet->answers[i]);
