@@ -27,8 +27,8 @@ void loadCorrectAnswers(AnswerSheet *sheet) {
   memcpy(sheet->correctAnswers, tempAnswers, MAX_QUESTIONS);
 }
 
+/*
 
-// Function to load previous progress
 int loadProgress(AnswerSheet *sheet) {
     FILE *file = fopen("student_progress.txt", "r");
     if (!file) return 0; // No previous progress
@@ -46,8 +46,9 @@ int loadProgress(AnswerSheet *sheet) {
     fclose(file);
     return 1; // Progress found
 }
+*/
+/*
 
-// Function to save progress
 void saveProgress(AnswerSheet *sheet) {
     FILE *file = fopen("student_progress.txt", "w");
     if (!file) return;
@@ -61,6 +62,8 @@ void saveProgress(AnswerSheet *sheet) {
 
     fclose(file);
 }
+*/
+// Function to save progress
 
 // Function to take answers from students
 void takeAnswers(AnswerSheet *sheet) {
