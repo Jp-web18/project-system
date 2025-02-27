@@ -13,7 +13,7 @@ int loadProgress(AnswerSheet *sheet) {
     for (int i = 0; i < sheet->lastQuestion; i++) {
         fscanf(file, " %c", &sheet->answers[i]);
     }
-
+    
     fclose(file);
     return 1;
 }

@@ -11,15 +11,18 @@ Q7: B (Correct: B)
 Q8: B (Correct: B)
 Q9: B (Correct: A)
 Q10: B (Correct: B)
-Q11: B (Correct: C)
-Q12: B (Correct: D)
-Q13: B (Correct: A)
+Q11: C (Correct: C)
+Q12: D (Correct: D)
+Q13: A (Correct: A)
 Q14: B (Correct: B)
-Q15: B (Correct: C)
-Q16: B (Correct: D)
-Q17: B (Correct: A)
+Q15: C (Correct: C)
+Q16: D (Correct: D)
+Q17: A (Correct: A)
 Q18: B (Correct: B)
-Q19: B (Correct: C)
-Q20: B (Correct: D)
-Total Score: 11/20
+Q19: C (Correct: C)
+Q20: D (Correct: D)
+
+Modified Answers:
+Q9: A (Correct: A)
+Total Score: 20/20
 

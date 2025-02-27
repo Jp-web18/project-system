@@ -22,6 +22,7 @@
 
 */
 
+// MAIN FUNCTION ENTRY POINT
 int main() {
     AnswerSheet sheet = {0};
     loadCorrectAnswers(&sheet);
@@ -33,6 +34,7 @@ int main() {
         printf("\n\n%sStarting a new quiz...%s\n", CYAN, RESET);
     }
 
+    printf("\n%sTime limit: %d minutes%s\n", YELLOW, TIME_LIMIT, RESET);
     takeAnswers(&sheet);
     printf("Answers saved in student_data.txt\n");
 

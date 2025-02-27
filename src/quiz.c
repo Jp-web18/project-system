@@ -28,8 +28,11 @@ void loadCorrectAnswers(AnswerSheet *sheet) {
   memcpy(sheet->correctAnswers, tempAnswers, MAX_QUESTIONS);
 }
 
+
+
 // Function to take answers from students
 void takeAnswers(AnswerSheet *sheet) {
+
     if (sheet->lastQuestion == 0) {
         printf("%sEnter your name>%s ", YELLOW, RESET);
         fgets(sheet->studentName, sizeof(sheet->studentName), stdin);
@@ -58,7 +61,7 @@ void takeAnswers(AnswerSheet *sheet) {
     fprintf(file, "Student: %s\nSection: %s\nPC Station: %s\n", sheet->studentName, sheet->section, sheet->pcStation);
 
     for (int i = sheet->lastQuestion; i < MAX_QUESTIONS; i++) {
-        if (difftime(time(NULL), startTime) > TIME_LIMIT) {
+        if (difftime(time(NULL), startTime) > TIME_LIMIT * 60) {
             printf("Time is up!\n");
             break;
         }
@@ -75,6 +78,40 @@ void takeAnswers(AnswerSheet *sheet) {
         saveProgress(sheet); // Save after each question
     }
 
+    char choice;
+    printf("\n%sAre you finished with the test? (Y/N)%s ", YELLOW, RESET);
+    scanf(" %c", &choice);
+    choice = toupper(choice);
+
+    fprintf(file, "\nModified Answers:\n");
+
+    while (choice == 'N') {
+        int questionNumber;
+        printf("%sEnter the question number you want to change (1-%d):%s ", YELLOW, MAX_QUESTIONS, RESET);
+        scanf("%d", &questionNumber);
+
+        if (questionNumber < 1 || questionNumber > MAX_QUESTIONS) {
+            printf("%sInvalid question number!%s\n", RED, RESET);
+        } else {
+            printf("%sEnter new answer for Question %d:%s ", MAGENTA, questionNumber, RESET);
+            scanf(" %c", &sheet->answers[questionNumber - 1]);
+            sheet->answers[questionNumber - 1] = toupper(sheet->answers[questionNumber - 1]);
+
+            if (sheet->answers[questionNumber - 1] == sheet->correctAnswers[questionNumber - 1]) {
+                sheet->score++;
+            } else {
+                sheet->score--;
+            }
+            fprintf(file, "Q%d: %c (Correct: %c)\n", questionNumber, sheet->answers[questionNumber - 1], sheet->correctAnswers[questionNumber - 1]);
+        }
+
+        printf("\n%sAre you finished with the test? (Y/N)%s ", YELLOW, RESET);
+        scanf(" %c", &choice);
+        choice = toupper(choice);
+    }
+
+
+
     printf("\nQuiz Completed! Your Score: %d/%d\n", sheet->score, MAX_QUESTIONS);
     fprintf(file, "Total Score: %d/%d\n\n", sheet->score, MAX_QUESTIONS);
     fclose(file);
@@ -87,3 +124,4 @@ void takeAnswers(AnswerSheet *sheet) {
         remove("student_progress.txt");
     }
 }
+
