@@ -34,17 +34,45 @@ void loadCorrectAnswers(AnswerSheet *sheet) {
 void takeAnswers(AnswerSheet *sheet) {
 
     if (sheet->lastQuestion == 0) {
-        printf("%sEnter your name>%s ", YELLOW, RESET);
+        printf("%sName:\t\t%s ", YELLOW, RESET);
         fgets(sheet->studentName, sizeof(sheet->studentName), stdin);
         sheet->studentName[strcspn(sheet->studentName, "\n")] = 0;
 
-        printf("%sEnter your section>%s ", YELLOW, RESET);
+        printf("%sSection code:\t%s ", YELLOW, RESET);
         fgets(sheet->section, sizeof(sheet->section), stdin);
         sheet->section[strcspn(sheet->section, "\n")] = 0;
 
-        printf("%sEnter your PC Station number>%s ", YELLOW, RESET);
+        printf("%sPC number:\t%s ", YELLOW, RESET);
         fgets(sheet->pcStation, sizeof(sheet->pcStation), stdin);
         sheet->pcStation[strcspn(sheet->pcStation, "\n")] = 0;
+    }
+
+    char confirm;
+    printf("%sIs the following information correct? (Y/N)%s\n", YELLOW, RESET);
+    printf("Name:\t\t%s\nSection code:\t%s\nPC number:\t%s\n", sheet->studentName, sheet->section, sheet->pcStation);
+    printf("Enter your choice:\t");
+    scanf(" %c", &confirm);
+    getchar();
+    confirm = toupper(confirm);
+    
+    while (confirm == 'N') {
+        printf("%sName:\t\t%s ", YELLOW, RESET);
+        fgets(sheet->studentName, sizeof(sheet->studentName), stdin);
+        sheet->studentName[strcspn(sheet->studentName, "\n")] = 0;
+
+        printf("%sSection code:\t%s ", YELLOW, RESET);
+        fgets(sheet->section, sizeof(sheet->section), stdin);
+        sheet->section[strcspn(sheet->section, "\n")] = 0;
+
+        printf("%sPC number:\t%s ", YELLOW, RESET);
+        fgets(sheet->pcStation, sizeof(sheet->pcStation), stdin);
+        sheet->pcStation[strcspn(sheet->pcStation, "\n")] = 0;
+
+        printf("%sIs the following information correct? (Y/N)%s\n", YELLOW, RESET);
+        printf("Name:\t\t%s\nSection code:\t%s\nPC number:\t%s\n", sheet->studentName, sheet->section, sheet->pcStation);
+        printf("Enter your choice:\t");
+        scanf(" %c", &confirm);
+        confirm = toupper(confirm);
     }
 
     printf("\n\n%sAnswer the following questions:%s\n", GREEN, RESET);
@@ -65,7 +93,7 @@ void takeAnswers(AnswerSheet *sheet) {
             printf("Time is up!\n");
             break;
         }
-        printf("%sEnter answer for Question %s%d%s: ", MAGENTA, BLUE, i + 1, RESET);
+        printf("%sEnter answer number %s%d%s: ", MAGENTA, BLUE, i + 1, RESET);
         scanf(" %c", &sheet->answers[i]);
 
         sheet->answers[i] = toupper(sheet->answers[i]);

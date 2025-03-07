@@ -2,6 +2,9 @@
 #ifndef COLORS_H
 #define COLORS_H
 
+#include <stdlib.h>
+
+
 #define RESET   "\x1b[0m"
 #define BLACK   "\x1b[30m"
 #define RED     "\x1b[31m"
@@ -19,6 +22,16 @@
 #define BG_MAGENTA "\x1b[45m"
 #define BG_CYAN    "\x1b[46m"
 
+
+
+
+// Function to set console color
+/*
+void setConsoleColor() {
+    system("color 1F");
+}
+
+*/
 
 // ... other background colors
 #define YELLOW_ON_BLUE YELLOW BG_BLUE // Combined color

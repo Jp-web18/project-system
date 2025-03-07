@@ -1,6 +1,11 @@
 #include "../include/quiz.h"
 #include "../include/file_manager.h"
 #include "../include/colors.h"
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+*/
 
 /*
   * Main function
@@ -24,6 +29,7 @@
 
 // MAIN FUNCTION ENTRY POINT
 int main() {
+    // system("color 1F");
     AnswerSheet sheet = {0};
     loadCorrectAnswers(&sheet);
 
