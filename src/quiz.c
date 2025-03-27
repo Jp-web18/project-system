@@ -28,8 +28,6 @@ void loadCorrectAnswers(AnswerSheet *sheet) {
   memcpy(sheet->correctAnswers, tempAnswers, MAX_QUESTIONS);
 }
 
-
-
 // Function to take answers from students
 void takeAnswers(AnswerSheet *sheet) {
 

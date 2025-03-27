@@ -37,7 +37,7 @@ int main() {
         printf("%sResuming previous session for %s...%s\n", sheet.studentName, 
             CYAN, RESET);
     } else {
-        printf("\n\n%sStarting a new quiz...%s\n", CYAN, RESET);
+        printf("\n\n%sStarting a new quis...%s\n", CYAN, RESET);
     }
 
     printf("\n%sTime limit: %d minutes%s\n", YELLOW, TIME_LIMIT, RESET);
