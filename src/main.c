@@ -18,15 +18,6 @@
   * 7. Exit
   */
 
-  /*
-  * COMPILE COMMANDS
-  * gcc -Iinclude -Wall -g src/main.c src/quiz.c src/file_manager.c -o quiz_system
-    
-  * RUN COMMANDS
-  * ./quiz_system 
-
-*/
-
 // MAIN FUNCTION ENTRY POINT
 int main() {
     // system("color 1F");

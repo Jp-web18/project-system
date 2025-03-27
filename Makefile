@@ -14,11 +14,15 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	if not exist $(OBJ_DIR) mkdir $(OBJ_DIR)
 
 clean:
 	if exist $(BIN) del /Q /F $(BIN)
 	if exist $(OBJ_DIR) rmdir /S /Q $(OBJ_DIR)
 	if exist student_data.txt del /Q /F student_data.txt
 
-.PHONY: clean
+# Run target to compile and execute the program
+run: $(BIN)
+	$(BIN)
+
+.PHONY: clean run
