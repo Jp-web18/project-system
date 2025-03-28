@@ -20,6 +20,7 @@ clean:
 	if exist $(BIN) del /Q /F $(BIN)
 	if exist $(OBJ_DIR) rmdir /S /Q $(OBJ_DIR)
 	if exist student_data.txt del /Q /F student_data.txt
+	if exist student_progress.dat del /Q /F student_progress.dat
 
 # Run target to compile and execute the program
 run: $(BIN)
