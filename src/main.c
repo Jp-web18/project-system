@@ -6,7 +6,6 @@
 #include <stdlib.h>
 
 */
-
 /*
   * Main function
   * 1. Load correct answers from file

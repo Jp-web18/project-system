@@ -1,7 +1,7 @@
 #include "file_manager.h"
 
 int loadProgress(AnswerSheet *sheet) {
-    FILE *file = fopen("student_progress.txt", "r");
+    FILE *file = fopen("student_progress.dat", "r");
     if (!file) return 0;
 
     fscanf(file, "%[^\n]\n", sheet->studentName);
@@ -19,7 +19,7 @@ int loadProgress(AnswerSheet *sheet) {
 }
 
 void saveProgress(AnswerSheet *sheet) {
-    FILE *file = fopen("student_progress.txt", "w");
+    FILE *file = fopen("student_progress.dat", "w");
     if (!file) return;
 
     fprintf(file, "%s\n%s\n%s\n", sheet->studentName, sheet->section, sheet->pcStation);
