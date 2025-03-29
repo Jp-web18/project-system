@@ -73,17 +73,17 @@ void takeAnswers(AnswerSheet *sheet) {
         confirm = toupper(confirm);
     }
 
-    printf("\n\n%sAnswer the following questions:%s\n", GREEN, RESET);
-
     time_t startTime = time(NULL);
     FILE *file = fopen("student_data.txt", "a");
 
     // Check if the file is opened successfully
     if (!file) {
-        printf("%sERROR: You cannot retake the test!%s\n", RED, RESET);
+        printf("\n%sERROR: You cannot retake the test!%s\n", RED, RESET);
         return;
     }
 
+    printf("\n\n%sAnswer the following questions:%s\n", GREEN, RESET);
+    
     fprintf(file, "Student: %s\nSection: %s\nPC Station: %s\n", sheet->studentName, sheet->section, sheet->pcStation);
 
     for (int i = sheet->lastQuestion; i < MAX_QUESTIONS; i++) {
@@ -149,5 +149,7 @@ void takeAnswers(AnswerSheet *sheet) {
     if (sheet->lastQuestion >= MAX_QUESTIONS) {
         remove("student_progress.txt");
     }
+
+    printf("Answers saved in student_data.txt\n");
 }
 
