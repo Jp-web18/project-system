@@ -1,5 +1,6 @@
 #include "quiz.h"
 #include "colors.h"
+#include "input_validation.h"
 
 // Function to load correct answers into the AnswerSheet structure
 void loadCorrectAnswers(AnswerSheet *sheet) {
@@ -44,15 +45,19 @@ void takeAnswers(AnswerSheet *sheet) {
         fgets(sheet->pcStation, sizeof(sheet->pcStation), stdin);
         sheet->pcStation[strcspn(sheet->pcStation, "\n")] = 0;
     }
-
-    char confirm;
-    printf("%sIs the following information correct? (Y/N)%s\n", YELLOW, RESET);
-    printf("Name:\t\t%s\nSection code:\t%s\nPC number:\t%s\n", sheet->studentName, sheet->section, sheet->pcStation);
-    printf("Enter your choice:\t");
-    scanf(" %c", &confirm);
-    getchar();
-    confirm = toupper(confirm);
     
+    char prompt[256];
+    sprintf(prompt,
+        "%sIs the following information correct? (Y/N)%s\n"
+        "Name:\t\t%s\n"
+        "Section code:\t%s\n"
+        "PC number:\t%s\n"
+        "Enter your choice:\t",
+        YELLOW, RESET, sheet->studentName, sheet->section, sheet->pcStation
+    );
+    char confirm = get_yes_no_input(prompt);
+
+
     while (confirm == 'N') {
         printf("%sName:\t\t%s ", YELLOW, RESET);
         fgets(sheet->studentName, sizeof(sheet->studentName), stdin);
