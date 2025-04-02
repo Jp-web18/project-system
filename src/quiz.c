@@ -110,13 +110,16 @@ void takeAnswers(AnswerSheet *sheet) {
     }
 
 
-    char prompt1[256];
-    sprintf(prompt1, "%sAre you finished with the test? (Y/N)%s\n", YELLOW, RESET);
-    char confirm1 = get_yes_no_input(prompt1);
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF); // Clear the input buffer
+
+    /* char prompt[256]; */
+    sprintf(prompt, "%sAre you finished with the test? (Y/N):\t%s", YELLOW, RESET);
+    confirm = get_yes_no_input(prompt);
 
     fprintf(file, "\nModified Answers:\n");
 
-    while (confirm1 == 'N') {
+    while (confirm == 'N') {
         int questionNumber;
         printf("%sEnter the question number you want to change (1-%d):%s ", YELLOW, MAX_QUESTIONS, RESET);
         scanf("%d", &questionNumber);
@@ -136,11 +139,15 @@ void takeAnswers(AnswerSheet *sheet) {
             fprintf(file, "Q%d: %c (Correct: %c)\n", questionNumber, sheet->answers[questionNumber - 1], sheet->correctAnswers[questionNumber - 1]);
         }
 
-        printf("\n%sAre you finished with the test? (Y/N)%s ", YELLOW, RESET);
-        scanf(" %c", &confirm1);
-        confirm1 = toupper(confirm1);
+
+
+        printf("\n%sAre you finished with the test? (Y/N):\t%s", YELLOW, RESET);
+        scanf(" %c", &confirm);
+        confirm = toupper(confirm);
     }
 
+
+    
 
 
     printf("\nQuiz Completed! Your Score: %d/%d\n", sheet->score, MAX_QUESTIONS);

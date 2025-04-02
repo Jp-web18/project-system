@@ -5,7 +5,6 @@
 
 // MAIN FUNCTION ENTRY POINT
 int main() {
-    // system("color 1F");
     AnswerSheet sheet = {0};
     loadCorrectAnswers(&sheet);
 
