@@ -109,14 +109,14 @@ void takeAnswers(AnswerSheet *sheet) {
         saveProgress(sheet); // Save after each question
     }
 
-    char choice;
-    printf("\n%sAre you finished with the test? (Y/N)%s ", YELLOW, RESET);
-    scanf(" %c", &choice);
-    choice = toupper(choice);
+
+    char prompt1[256];
+    sprintf(prompt1, "%sAre you finished with the test? (Y/N)%s\n", YELLOW, RESET);
+    char confirm1 = get_yes_no_input(prompt1);
 
     fprintf(file, "\nModified Answers:\n");
 
-    while (choice == 'N') {
+    while (confirm1 == 'N') {
         int questionNumber;
         printf("%sEnter the question number you want to change (1-%d):%s ", YELLOW, MAX_QUESTIONS, RESET);
         scanf("%d", &questionNumber);
@@ -137,8 +137,8 @@ void takeAnswers(AnswerSheet *sheet) {
         }
 
         printf("\n%sAre you finished with the test? (Y/N)%s ", YELLOW, RESET);
-        scanf(" %c", &choice);
-        choice = toupper(choice);
+        scanf(" %c", &confirm1);
+        confirm1 = toupper(confirm1);
     }
 
 
