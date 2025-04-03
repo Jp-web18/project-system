@@ -2,6 +2,7 @@
 #include "colors.h"
 
 
+
 char get_yes_no_input(const char *prompt) {
     char buffer[10];
     char confirm;
@@ -12,6 +13,9 @@ char get_yes_no_input(const char *prompt) {
             printf("Error reading input.\n");
             exit(EXIT_FAILURE);
         }
+
+        // Remove newline character from the input
+        
 
         buffer[strcspn(buffer, "\n")] = 0;
 
