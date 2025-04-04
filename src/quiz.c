@@ -50,7 +50,7 @@ void takeAnswers(AnswerSheet *sheet) {
     sprintf(prompt,
         "%sIs the following information correct? (Y/N)%s\n"
         "Name:\t\t%s\n"
-        "Section code:\t%s\n"-
+        "Section code:\t%s\n"
         "PC number:\t%s\n"
         "Enter your choice:\t",
         YELLOW, RESET, sheet->studentName, sheet->section, sheet->pcStation
