@@ -1,9 +1,5 @@
 #include "../include/config.h"
 
-#include "../include/quiz.h"
-#include "../include/file_manager.h"
-#include "../include/colors.h"
-
 
 #define MAX_INPUT 10 // Maximum input size for answers
 
@@ -28,26 +24,42 @@ int main() {
     // Process the user's choice
     if (strcmp(choice, "1") == 0) {
         printf("You chose to make a test.\n");
+        makeTest();
     } else if (strcmp(choice, "2") == 0) {
         printf("You chose to take the test.\n");
+        
+        AnswerSheet sheet = {0};
+        loadCorrectAnswers(&sheet);
+     
+        if (loadProgress(&sheet)) {
+            printf("%sResuming previous session for %s...%s\n", sheet.studentName, CYAN, RESET);
+        } else {
+            printf("\n\n%sStarting a new quis...%s\n", CYAN, RESET);
+        }
+     
+        printf("\n%sTime limit: %d minutes%s\n", YELLOW, TIME_LIMIT, RESET);
+        takeAnswers(&sheet);
+        
     } else {
         printf("Invalid choice.\n");
     }
 
 
-
-
+    /*
     AnswerSheet sheet = {0};
     loadCorrectAnswers(&sheet);
-
+ 
     if (loadProgress(&sheet)) {
         printf("%sResuming previous session for %s...%s\n", sheet.studentName, CYAN, RESET);
     } else {
         printf("\n\n%sStarting a new quis...%s\n", CYAN, RESET);
     }
-
+ 
     printf("\n%sTime limit: %d minutes%s\n", YELLOW, TIME_LIMIT, RESET);
     takeAnswers(&sheet);
+    
+    */
+
 
     printf("\nPress any key to exit...\n");
     system("pause");

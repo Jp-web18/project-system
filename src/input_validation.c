@@ -1,7 +1,8 @@
 #include "config.h"
 
-#include "colors.h"
 
+
+/* INPUT VALIDATION FOR YES OR NO INPUTS */
 char get_yes_no_input(const char *prompt) {
     char buffer[10];
     char confirm;

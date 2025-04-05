@@ -1,8 +1,5 @@
 #include "config.h"
 
-#include "file_manager.h"
-#include "quiz.h"
-
 
 
 /* QUIZ FILE MANAGEMENT */

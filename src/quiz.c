@@ -1,10 +1,6 @@
 #include "config.h"
 
-#include "quiz.h"
-#include "colors.h"
-#include "input_validation.h"
 
-/*  */
 
 // Function to load correct answers into the AnswerSheet structure
 void loadCorrectAnswers(AnswerSheet *sheet) {
