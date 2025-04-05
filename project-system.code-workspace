@@ -9,7 +9,8 @@
 			"stdio.h": "c",
 			"ctype.h": "c",
 			"quiz.h": "c",
-			"file_manager.h": "c"
+			"file_manager.h": "c",
+			"stdlib.h": "c"
 		},
 		"editor.fontFamily": "Cascadia Mono"
 	}

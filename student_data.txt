@@ -1,0 +1,27 @@
+Student: John Paul D. Abecia
+Section: T259
+PC Station: 23
+Q1: B (Correct: B)
+Q2: B (Correct: B)
+Q3: B (Correct: B)
+Q4: B (Correct: B)
+Q5: B (Correct: B)
+Q6: B (Correct: B)
+Q7: B (Correct: B)
+Q8: B (Correct: B)
+Q9: A (Correct: A)
+Q10: B (Correct: B)
+Q11: C (Correct: C)
+Q12: D (Correct: D)
+Q13: A (Correct: A)
+Q14: B (Correct: B)
+Q15: C (Correct: C)
+Q16: D (Correct: D)
+Q17: A (Correct: A)
+Q18: B (Correct: B)
+Q19: C (Correct: C)
+Q20: D (Correct: D)
+
+Modified Answers:
+Total Score: 20/20
+

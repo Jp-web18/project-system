@@ -1,11 +1,21 @@
+#include "config.h"
+
+
 #include "input_validation.h"
 #include "colors.h"
 
+/* INPUT VALIDATIONS FOR MAIN PAGE */
 
+
+
+/* INPUT VALIDATIONS FOR ADMINISTRATOR PERSPECTIVE */
+
+
+/* STUDENT PERSPECTIVE INPUT VALIDATIONS */
 char get_yes_no_input(const char *prompt) {
     char buffer[10];
     char confirm;
-
+    
     do {
         printf("%s", prompt);
         if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
@@ -30,3 +40,4 @@ char get_yes_no_input(const char *prompt) {
 
     return confirm;
 }
+
