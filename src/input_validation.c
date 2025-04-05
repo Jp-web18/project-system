@@ -2,7 +2,6 @@
 #include "colors.h"
 
 
-
 char get_yes_no_input(const char *prompt) {
     char buffer[10];
     char confirm;

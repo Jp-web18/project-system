@@ -2,6 +2,8 @@
 #include "colors.h"
 #include "input_validation.h"
 
+/*  */
+
 // Function to load correct answers into the AnswerSheet structure
 void loadCorrectAnswers(AnswerSheet *sheet) {
   char tempAnswers[MAX_QUESTIONS] = {
