@@ -1,6 +1,6 @@
-#include "input_validation.h"
-#include "colors.h"
+#include "config.h"
 
+#include "colors.h"
 
 char get_yes_no_input(const char *prompt) {
     char buffer[10];
@@ -13,9 +13,6 @@ char get_yes_no_input(const char *prompt) {
             exit(EXIT_FAILURE);
         }
 
-        // Remove newline character from the input
-        
-
         buffer[strcspn(buffer, "\n")] = 0;
 
         if (buffer[0] != '\0') {
@@ -25,9 +22,11 @@ char get_yes_no_input(const char *prompt) {
                 confirm = buffer[0];
             } else {
                 printf("%sInvalid input! Please enter either 'Y' or 'N'.%s\n\n", RED, RESET);
+                continue;
             }
         } else {
             printf("%sInvalid input! Please enter either 'Y' or 'N'.%s\n\n", RED, RESET);
+            continue;
         }
     } while (confirm != 'Y' && confirm != 'N');
 

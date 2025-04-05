@@ -1,3 +1,5 @@
+#include "config.h"
+
 #include "quiz.h"
 #include "colors.h"
 #include "input_validation.h"
@@ -100,6 +102,7 @@ void takeAnswers(AnswerSheet *sheet) {
         }
         printf("%sEnter answer number %s%d%s: ", MAGENTA, BLUE, i + 1, RESET);
         scanf(" %c", &sheet->answers[i]);
+        while (getchar() != '\n'); // Clear input buffer
 
         sheet->answers[i] = toupper(sheet->answers[i]);
         if (sheet->answers[i] == sheet->correctAnswers[i]) {
@@ -112,11 +115,10 @@ void takeAnswers(AnswerSheet *sheet) {
     }
 
 
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF); // Clear the input buffer
 
-    /* char prompt[256]; */
-    sprintf(prompt, "%sAre you finished with the test? (Y/N):\t%s", YELLOW, RESET);
+    sprintf(prompt,
+        "%sAre you finished with the test? (Y/N)%s ", YELLOW, RESET);
+
     confirm = get_yes_no_input(prompt);
 
     fprintf(file, "\nModified Answers:\n");
@@ -131,6 +133,8 @@ void takeAnswers(AnswerSheet *sheet) {
         } else {
             printf("%sEnter new answer for Question %d:%s ", MAGENTA, questionNumber, RESET);
             scanf(" %c", &sheet->answers[questionNumber - 1]);
+            while (getchar() != '\n'); // Clear input buffer
+            
             sheet->answers[questionNumber - 1] = toupper(sheet->answers[questionNumber - 1]);
 
             if (sheet->answers[questionNumber - 1] == sheet->correctAnswers[questionNumber - 1]) {
@@ -141,15 +145,12 @@ void takeAnswers(AnswerSheet *sheet) {
             fprintf(file, "Q%d: %c (Correct: %c)\n", questionNumber, sheet->answers[questionNumber - 1], sheet->correctAnswers[questionNumber - 1]);
         }
 
-
-
-        printf("\n%sAre you finished with the test? (Y/N):\t%s", YELLOW, RESET);
-        scanf(" %c", &confirm);
-        confirm = toupper(confirm);
+        sprintf(prompt,
+            "%sAre you finished with the test? (Y/N)%s ", YELLOW, RESET);
+    
+        confirm = get_yes_no_input(prompt);
     }
 
-
-    
 
 
     printf("\nQuiz Completed! Your Score: %d/%d\n", sheet->score, MAX_QUESTIONS);

@@ -2,8 +2,6 @@
 #ifndef COLORS_H
 #define COLORS_H
 
-#include <stdlib.h>
-
 
 #define RESET   "\x1b[0m"
 #define BLACK   "\x1b[30m"
