@@ -1,8 +1,9 @@
-#include "config.h"
+#include "../include/config.h"
 
 #include "../include/quiz.h"
 #include "../include/file_manager.h"
 #include "../include/colors.h"
+
 
 #define MAX_INPUT 10 // Maximum input size for answers
 
@@ -13,7 +14,7 @@ int main() {
 
     // Display the welcome message and options
     printf("=====================================\n");
-    printf("      WELCOME TO THE QUIZ SYSTEM\n");
+    printf("Welcome to the Quiz System\n");
     printf("=====================================\n");
     printf("[1] Make a test\n");
     printf("[2] Take the test\n");
@@ -32,6 +33,7 @@ int main() {
     } else {
         printf("Invalid choice.\n");
     }
+
 
 
 

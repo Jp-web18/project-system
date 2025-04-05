@@ -1,5 +1,11 @@
-#include "file_manager.h"
+#include "config.h"
 
+#include "file_manager.h"
+#include "quiz.h"
+
+
+
+/* QUIZ FILE MANAGEMENT */
 int loadProgress(AnswerSheet *sheet) {
     FILE *file = fopen("student_progress.dat", "r");
     if (!file) return 0;
@@ -31,3 +37,8 @@ void saveProgress(AnswerSheet *sheet) {
 
     fclose(file);
 }
+
+
+
+/* MAKE QUIZ FILE MANAGEMENT */
+    

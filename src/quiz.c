@@ -1,6 +1,5 @@
 #include "config.h"
 
-
 #include "quiz.h"
 #include "colors.h"
 #include "input_validation.h"
@@ -53,7 +52,7 @@ void takeAnswers(AnswerSheet *sheet) {
     sprintf(prompt,
         "%sIs the following information correct? (Y/N)%s\n"
         "Name:\t\t%s\n"
-        "Section code:\t%s\n"-
+        "Section code:\t%s\n"
         "PC number:\t%s\n"
         "Enter your choice:\t",
         YELLOW, RESET, sheet->studentName, sheet->section, sheet->pcStation
@@ -114,18 +113,10 @@ void takeAnswers(AnswerSheet *sheet) {
     }
 
 
-<<<<<<< HEAD
 
     sprintf(prompt,
         "%sAre you finished with the test? (Y/N)%s ", YELLOW, RESET);
 
-=======
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF); // Clear the input buffer
-
-    /* char prompt[256]; */
-    sprintf(prompt, "%sAre you finished with the test? (Y/N):\t%s", YELLOW, RESET);
->>>>>>> 1c8e171446c6f969e21b4f56f6395a0f25f0812f
     confirm = get_yes_no_input(prompt);
 
     fprintf(file, "\nModified Answers:\n");
@@ -152,22 +143,12 @@ void takeAnswers(AnswerSheet *sheet) {
             fprintf(file, "Q%d: %c (Correct: %c)\n", questionNumber, sheet->answers[questionNumber - 1], sheet->correctAnswers[questionNumber - 1]);
         }
 
-<<<<<<< HEAD
         sprintf(prompt,
             "%sAre you finished with the test? (Y/N)%s ", YELLOW, RESET);
     
         confirm = get_yes_no_input(prompt);
-=======
-
-
-        printf("\n%sAre you finished with the test? (Y/N):\t%s", YELLOW, RESET);
-        scanf(" %c", &confirm);
-        confirm = toupper(confirm);
->>>>>>> 1c8e171446c6f969e21b4f56f6395a0f25f0812f
     }
 
-
-    
 
 
     printf("\nQuiz Completed! Your Score: %d/%d\n", sheet->score, MAX_QUESTIONS);
