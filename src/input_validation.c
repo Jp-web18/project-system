@@ -7,11 +7,14 @@
 /* INPUT VALIDATIONS FOR MAIN PAGE */
 
 
+<<<<<<< HEAD
 
 /* INPUT VALIDATIONS FOR ADMINISTRATOR PERSPECTIVE */
 
 
 /* STUDENT PERSPECTIVE INPUT VALIDATIONS */
+=======
+>>>>>>> 1c8e171446c6f969e21b4f56f6395a0f25f0812f
 char get_yes_no_input(const char *prompt) {
     char buffer[10];
     char confirm;
@@ -22,6 +25,9 @@ char get_yes_no_input(const char *prompt) {
             printf("Error reading input.\n");
             exit(EXIT_FAILURE);
         }
+
+        // Remove newline character from the input
+        
 
         buffer[strcspn(buffer, "\n")] = 0;
 
