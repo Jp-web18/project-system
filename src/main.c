@@ -14,7 +14,7 @@ int main() {
 
     // Display the welcome message and options
     printf("=====================================\n");
-    printf("Welcome to the Quiz System\n");
+    printf("     Welcome to the Quiz System\n");
     printf("=====================================\n");
     printf("[1] Make a test\n");
     printf("[2] Take the test\n");
