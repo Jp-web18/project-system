@@ -46,7 +46,7 @@ void takeAnswers(AnswerSheet *sheet) {
         sheet->pcStation[strcspn(sheet->pcStation, "\n")] = 0;
     }
     
-    char prompt[256];
+    char prompt[100];
     sprintf(prompt,
         "%sIs the following information correct? (Y/N)%s\n"
         "Name:\t\t%s\n"
